@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
     borderBottomWidth: 1,
     marginVertical: 2,
+    paddingLeft: 5
   },
   item: {
     color: '#118ab2',

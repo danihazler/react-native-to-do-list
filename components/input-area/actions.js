@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, Platform } from 'react-native';
 
 export const Actions = ({
   addInput, 
@@ -7,16 +7,20 @@ export const Actions = ({
 }) => {  
   return (
     <View style={styles.buttons}>
-      <Button
-        color='#1a936f' 
-        title="Add" 
-        onPress={addInput} 
-      />
-      <Button 
-        color="red"
-        title="Cancel" 
-        onPress={cleanInput}
-      />
+      <View style={[styles.button, styles.add]}>
+        <Button
+          color='#3fada7' 
+          title="Add" 
+          onPress={addInput} 
+          />
+      </View>
+      <View style={styles.button}>
+        <Button 
+          color="#b51b43"
+          title="Cancel" 
+          onPress={cleanInput}
+        />
+      </View>
     </View>
   );
 }
@@ -24,6 +28,14 @@ export const Actions = ({
 const styles = StyleSheet.create({
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'space-between',
+    alignSelf: 'flex-end',
+    marginTop: 7,
+  },
+  button: {
+    width: Platform.OS === 'android' ? '20%' : undefined
+  },
+  add: {
+    marginRight: 5
   }
 });
